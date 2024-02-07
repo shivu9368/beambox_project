@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="John Doe">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="style.css" rel="stylesheet">
+    <style type="text/css">
+    #legend {
+        display: flex;
+        justify-content:left;
+        margin: 13px 0 13px 0;
+   }
+
+    #legend div {
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+    #legend span {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        margin-right: 5px;
+    }
+    .line-through {
+        text-decoration: line-through;
+    }
+    </style>
+ </head>
+  <body>
+    <section id="beambox">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3 col-md-site-bar">
+                   <div class="side-wraper-perforance">
+                    <div class="side-bar">
+                        <h4>Performance Modules</h4>
+                        <span><img src="img/range.svg"></span>
+                    </div>
+                    <div class="side-bar-wrapeer">
+                        <ul>
+                          <li>
+                            <span class="toggle-label">Guest Performance</span>
+                              <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                              </label>
+                          </li>
+                          <li>
+                            <span>Location Performance</span>
+                              <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                              </label>
+                          </li>
+                          <li>
+                            <span>Email Performance</span>
+                              <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                              </label>
+                          </li>
+                          <li>
+                            <span>QR Codes Performance</span>
+                              <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                              </label>
+                          </li>
+                          <li>
+                            <span>Review Automator Performance</span>
+                              <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                              </label>
+                          </li>
+                        </ul>
+                        <div class="side-bar-Components">
+                         <h4 class="marketing-heading">Marketing Components</h4>
+                         <span><img src="img/stage.svg"></span>
+                        </div>
+                        <ul>
+                          <li>
+                            <span>Guest Performance</span>
+                              <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                              </label>
+                          </li>
+                          <li>
+                            <span>Recent blast campaigns</span>
+                              <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                              </label>
+                          </li>
+                          <li>
+                            <span>Top performing Forms</span>
+                              <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                              </label>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="sidebar-note">
+                        <p>Use toggle to display item block on/off. Click and drag item to reorder.</p>
+                      </div>
+                    </div>
+                   </div>
+                <div class="col-md-9 col-md-modules">
+                    <div class="modules-cart">
+                        <h1>Performance-Modules</h1>
+                    </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                        <div class="modules-action">
+                         <div class="modules-cart-performance">
+                            <h3>Guest Performance</h3>
+                            <span>View Guest <img src="img/arwow-msg.svg"></span>
+                         </div>
+                         <div class="modules-cart-performance action">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a data-toggle="tab" href="#tab1">7 days</a></li>
+                                <li><a data-toggle="tab" href="#tab2">30 days</a></li>
+                                <li><a data-toggle="tab" href="#tab3">60 days</a></li>
+                            </ul>
+                            <span class="move-block">Move Block<img src="img/move.svg"></span>
+                        </div>
+                        <div class="vis-log-guest">
+                            <div class="modules-vlg">
+                                <span class="percentage">+25%<img src="img/Vector.svg"></span>
+                                <span class="value">350</span>
+                                <span class="vlg-tootip">Visits<img src="img/tooltip.svg"></span>
+                            </div>
+                            <div class="modules-vlg">
+                                <span class="percentage stage-n">+25%<img src="img/arrow-neg.svg"></span>
+                                <span class="value">350</span>
+                                <span class="vlg-tootip">Logins<img src="img/tooltip.svg"></span>
+                            </div>
+                            <div class="modules-vlg">
+                                <span class="percentage">+25%<img src="img/Vector.svg"></span>
+                                <span class="value">350</span>
+                                <span class="vlg-tootip">Guests<img src="img/tooltip.svg"></span>
+                            </div>
+                        </div>
+                        <div class="tab-content-modules">
+                            <div class="tab-content">
+                                  <div class="graph-chart">
+                                     <div id="legend"></div>
+                                     <span>Hide Graph<img src="img/eye.svg" class="show-eye-img"><img src="img/hide.svg" class="hide-eye-img"></span>
+                                  </div>
+                                <div id="tab1" class="tab-pane fade in active chart-bar-custom">
+                                    <span>Last 7 days</span>
+                                    <div class="grapgh-chart-bar">
+                                        <canvas id="chart1"></canvas>
+                                    </div>
+                                </div>
+                                <div id="tab2" class="tab-pane fade">
+                                    <span>Last 30 days</span>
+                                    <p>This is the content of Tab 2.</p>
+                                </div>
+                                <div id="tab3" class="tab-pane fade">
+                                    <span>Last 60 days</span>
+                                    <p>This is the content of Tab 2.</p>
+                                </div>
+                            </div>
+                        </div>
+                         </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="modules-action">
+                                <div class="modules-cart-performance">
+                                   <h3>Guest Performance</h3>
+                                   <span>View Guest <img src="img/arwow-msg.svg"></span>
+                                </div>
+                                <div class="modules-cart-performance action">
+                                   <ul class="nav nav-tabs">
+                                       <li class="active"><a data-toggle="tab" href="#tab0">7 days</a></li>
+                                       <li><a data-toggle="tab" href="#tab6">30 days</a></li>
+                                       <li><a data-toggle="tab" href="#tab5">60 days</a></li>
+                                   </ul>
+                                   <span class="move-block">Move Block<img src="img/move.svg"></span>
+                               </div>
+                               <div class="vis-log-guest">
+                                   <div class="modules-vlg">
+                                       <span class="percentage">+25%<img src="img/Vector.svg"></span>
+                                       <span class="value">350</span>
+                                       <span class="vlg-tootip">Visits<img src="img/tooltip.svg"></span>
+                                   </div>
+                                   <div class="modules-vlg">
+                                       <span class="percentage stage-n">+25%<img src="img/arrow-neg.svg"></span>
+                                       <span class="value">350</span>
+                                       <span class="vlg-tootip">Logins<img src="img/tooltip.svg"></span>
+                                   </div>
+                                   <div class="modules-vlg">
+                                       <span class="percentage">+25%<img src="img/Vector.svg"></span>
+                                       <span class="value">350</span>
+                                       <span class="vlg-tootip">Guests<img src="img/tooltip.svg"></span>
+                                   </div>
+                               </div>
+                               <div class="tab-content-modules">
+                                   <div class="tab-content">
+                                       <div id="tab0" class="tab-pane fade in active chart-bar-custom">
+                                           <span>Last 7 days</span>
+                                           <div>
+                                            <canvas id="chart2"></canvas>
+                                          </div>
+                                       </div>
+                                       <div id="tab6" class="tab-pane fade">
+                                           <h3>Tab 2 Content</h3>
+                                           <p>This is the content of Tab 2.</p>
+                                       </div>
+                                   </div>
+                               </div>
+                                </div>
+                        </div>
+                       </div>
+                    </div>
+                    </div>
+                </div>
+    </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+  // Get the chart canvas and context
+var ctx1 = document.getElementById('chart1').getContext('2d');
+
+// Create the chart
+var chart1 = new Chart(ctx1, {
+    type: 'bar',
+    data: {
+        labels: ['01-Dec', '02-Dec', '03-Dec', '04-Dec', '05-Dec', '06-Dec', '07-Dec'],
+        datasets: [{
+                label: 'Visits',
+                data: [19, 20, 25, 19, 25, 25, 25],
+                backgroundColor: '#46D68C',
+            },
+            {
+                label: 'Logins',
+                data: [19, 20, 25, 19, 25, 25, 25],
+                backgroundColor: '#705CFE',
+            },
+            {
+                label: 'Guest',
+                data: [19, 20, 25, 19, 25, 25, 25],
+                backgroundColor: '#1DABF2',
+            }
+
+        ]
+    },
+    options: {
+        animation: {
+            duration: 0 // Set the duration of the animation to 0 milliseconds
+        },
+        scales: {
+            x: {
+                stacked: true
+            },
+            y: {
+                display: false,
+                stacked: true
+            }
+        },
+        plugins: {
+            legend: {
+                display: false // Hide the default legend
+            }
+        }
+    }
+});
+
+  // Populate the legend div
+    var legend = document.getElementById('legend');
+    chart1.data.datasets.forEach(function(dataset, index) {
+        legend.innerHTML += `<div onclick="toggleDatasetVisibility(${index})"><span style="background-color:${dataset.backgroundColor}"></span>${dataset.label}</div>`;
+    });
+
+    function toggleDatasetVisibility(index) {
+    var ci = chart1;
+    var meta = ci.getDatasetMeta(index);
+    meta.hidden = meta.hidden === null ? !ci.data.datasets[index].hidden : null;
+    ci.update();
+
+    // Toggle line-through style for the "Visits" label in the legend
+    var legendItems = document.querySelectorAll('#legend div');
+    legendItems[index].classList.toggle('line-through');
+}
+
+
+
+
+
+
+
+
+
+
+    // chart 2 data//
+    var ctx2 = document.getElementById('chart2').getContext('2d');
+        var chart2 = new Chart(ctx2, {
+        type: 'bar',
+        data: {
+            labels: ['01-Dec', '02-Dec', '03-Dec', '04-Dec', '05-Dec', '06-Dec', '07-Dec'],
+            datasets: [{
+                    label: 'Visits',
+                    data: [19, 20, 25, 19, 25, 25, 25],
+                    backgroundColor: '#46D68C',
+                },
+                {
+                    label: 'Logins',
+                    data: [19, 20, 25, 19, 25, 25, 25], // Adjusted the data accordingly
+                    backgroundColor: '#705CFE',
+                },
+                {
+                    label: 'Guests',
+                    data: [19, 20, 25, 19, 25, 25, 25], // Adjusted the data accordingly
+                    backgroundColor: '#1DABF2',
+                }
+            ]
+        },
+        options: {
+            animation: {
+                    duration: 0 // Set the duration of the animation to 0 milliseconds
+                },
+            scales: {
+                x: {
+                    stacked: true
+                },
+                y: {
+                    display: false,
+                    stacked: true
+                }
+            }
+        }
+    });
+</script>
+ript>
+    
+       
+  </body>
+  </html>
