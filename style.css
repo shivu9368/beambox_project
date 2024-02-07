@@ -264,6 +264,26 @@
     font-size:18px;  
     color:#344047;
  }
+ #legend {
+    display: flex;
+    justify-content:left;
+    margin: 13px 0 13px 0;
+}
+
+#legend div {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+#legend span {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+}
+.line-through {
+    text-decoration: line-through;
+}
 @media screen and (min-width:992px) {
     .col-md-site-bar{
       width:20%;
