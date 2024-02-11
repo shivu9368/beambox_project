@@ -119,7 +119,8 @@
     box-shadow: 5px 9px 60px 10px rgba(50, 117, 208, 0.05);
     background-color: #fff;
     border-radius: 10px;
-    padding:15px 20px;
+    padding:15px 20px;    
+    margin:15px 0 ;
 }
 .modules-cart-performance{
     display: flex;
@@ -133,6 +134,7 @@
         font-weight:450;
         font-size: 20px;
         color: #344047;
+        margin: 0;
     }
     span{
         color: #1EABF1;
@@ -193,6 +195,7 @@
         .active {
             a, a:hover, a:focus{
                 background-color: #1EABF1;
+                border: none;
             }            
         }
     }
@@ -203,14 +206,6 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        span{
-            position: relative;
-            .hide-eye-img{
-                position: absolute;
-                top:2px;
-                right: 0;
-            }
-        }
     }
 }
 .vis-log-guest{
@@ -264,25 +259,169 @@
     font-size:18px;  
     color:#344047;
  }
- #legend {
+ #legend1, #legend2, #legend3, #legend4, #legend5{
     display: flex;
     justify-content:left;
     margin: 13px 0 13px 0;
 }
 
-#legend div {
+#legend1 div, #legend2 div, #legend3 div, #legend4 div, #legend5 div{
     display: inline-block;
     margin-right: 10px;
 }
 
-#legend span {
+#legend1 span, #legend2 span, #legend3 span, #legend4 span, #legend5 span{
     display: inline-block;
     width: 15px;
     height: 15px;
     margin-right: 5px;
 }
+
 .line-through {
     text-decoration: line-through;
+}
+.email-performance{
+    border: 1px solid #E7EBEF;
+    border-radius: 10px;
+    padding: 7px 7px 15px;
+    margin:10px;
+    .percentage{
+        display: block;
+        text-align: right;
+        color: #20D785;
+        font-size: 16px;
+        &.stage-n{
+            color:#E95045;
+        }
+        img{
+            margin-left: 2px;
+            margin-top: -3px;
+        }
+    }
+    .value{
+        display: block;
+        text-align: center;
+        font-size: 36px;
+        font-weight: 450;
+        color: #344047;
+        img{
+            margin-left: 2px;
+        }
+    }
+    .vlg-tootip{
+        display: block;
+        text-align: center;
+        img{
+            margin-left: 4px;
+        }
+    }
+
+}
+table tr{
+  border-bottom: 1px solid #ddd;
+}
+table thead tr th, table tbody tr td{
+    padding:14px 0;
+}
+.tablerecenttable table thead tr th{
+    width: 25%;
+}
+.tablerecenttable table thead tr th:not(:first-child){
+    width: 15%;
+    text-align: center;
+}
+.tablerecenttable table tbody tr td:not(:first-child){
+    text-align: center;
+}
+.tablerecenttable table tbody tr td:nth-child(3){
+  span{
+    img{
+        margin-right: 10px;
+    }
+  }
+}
+.tablerecenttable table thead tr th:nth-child(6){
+ text-align: center;
+}
+.tablerecenttable table tbody tr td:nth-child(6){
+    text-align: center;
+}
+.tablerecent table thead tr th{
+    width: 40%;
+}
+.tablerecent table thead tr th:not(:first-child){
+    width: 20%;
+}
+.tablerecent table thead tr th:nth-child(3){
+    text-align: center;
+}
+.tablerecent table thead tr th:last-child{
+  text-align: center;
+}
+.tablerecent table tbody tr td:nth-child(3) {
+    text-align: center;
+}
+.tablerecent table tbody tr td:nth-child(2){
+  span{
+    img{
+        margin-right: 10px;
+    }
+  }
+}
+.tablerecent table tbody tr td:nth-child(4){
+    text-align: center;
+}
+.modules-vlg-qr{
+    width:50%;
+    border: 1px solid #E7EBEF;
+    border-radius: 10px;
+    padding: 7px 7px 15px;
+    .percentage{
+        display: block;
+        text-align: right;
+        color: #20D785;
+        font-size: 16px;
+        &.stage-n{
+            color:#E95045;
+        }
+        img{
+            margin-left: 2px;
+            margin-top: -3px;
+        }
+    }
+    .value{
+        display: block;
+        text-align: center;
+        font-size: 36px;
+        font-weight: 450;
+        color: #344047;
+        img{
+            margin-left: 2px;
+        }
+    }
+    .vlg-tootip{
+        display: block;
+        text-align: center;
+        img{
+            margin-left: 4px;
+        }
+    }
+}
+.email-modules-row{
+    display: flex;
+    flex-wrap: wrap;
+}
+.email-modules-column{
+    width: 50%;
+}
+.email-modules-col{
+  margin-top: 25px;
+  .email-performance{
+    padding:15px 7px 55px;
+    .value{
+        margin-top: 10px;
+    }
+  }
 }
 @media screen and (min-width:992px) {
     .col-md-site-bar{

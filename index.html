@@ -8,14 +8,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <link href="style.css" rel="stylesheet">
- </head>
-  <body>
-    <section id="beambox">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-3 col-md-site-bar">
-                   <div class="side-wraper-perforance">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+    #sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; text-align: right;}
+   #sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
+   #sortable li span { position: absolute; margin-left: -1.3em; }
+  </style>
+  </head>
+<body>
+<section id="beambox">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 col-md-site-bar">
+                <div class="side-wraper-perforance">
                     <div class="side-bar">
                         <h4>Performance Modules</h4>
                         <span><img src="img/range.svg"></span>
@@ -59,8 +66,8 @@
                           </li>
                         </ul>
                         <div class="side-bar-Components">
-                         <h4 class="marketing-heading">Marketing Components</h4>
-                         <span><img src="img/stage.svg"></span>
+                            <h4 class="marketing-heading">Marketing Components</h4>
+                            <span><img src="img/stage.svg"></span>
                         </div>
                         <ul>
                           <li>
@@ -85,32 +92,35 @@
                               </label>
                           </li>
                         </ul>
-                      </div>
-                      <div class="sidebar-note">
-                        <p>Use toggle to display item block on/off. Click and drag item to reorder.</p>
-                      </div>
                     </div>
-                   </div>
+                        <div class="sidebar-note">
+                            <p>Use toggle to display item block on/off. Click and drag item to reorder.</p>
+                        </div>
+                    
+                </div>
+            </div>
                 <div class="col-md-9 col-md-modules">
                     <div class="modules-cart">
                         <h1>Performance-Modules</h1>
                     </div>
                   <div class="row">
                     <div class="col-md-6">
-                        <div class="modules-action">
+                        <div class="modules-action dd">
                          <div class="modules-cart-performance">
                             <h3>Guest Performance</h3>
                             <span>View Guest <img src="img/arwow-msg.svg"></span>
                          </div>
                          <div class="modules-cart-performance action">
                             <ul class="nav nav-tabs">
-                                <li class="active"><a data-toggle="tab" href="#tab1">7 days</a></li>
-                                <li><a data-toggle="tab" href="#tab2">30 days</a></li>
-                                <li><a data-toggle="tab" href="#tab3">60 days</a></li>
+                                <li class="active"><a data-toggle="tab" href="#tabguest1">7 days</a></li>
+                                <li><a data-toggle="tab" href="#tabguest2">30 days</a></li>
+                                <li><a data-toggle="tab" href="#tabguest3">60 days</a></li>
                             </ul>
+                            <div  id="sortable">
                             <span class="move-block">Move Block<img src="img/move.svg"></span>
+                            </div>
                         </div>
-                        <div class="vis-log-guest">
+                        <div class="vis-log-guest ">
                             <div class="modules-vlg">
                                 <span class="percentage">+25%<img src="img/Vector.svg"></span>
                                 <span class="value">350</span>
@@ -123,27 +133,37 @@
                             </div>
                             <div class="modules-vlg">
                                 <span class="percentage">+25%<img src="img/Vector.svg"></span>
-                                <span class="value">350</span>
+                                <span class="value">400</span>
                                 <span class="vlg-tootip">Guests<img src="img/tooltip.svg"></span>
                             </div>
                         </div>
                         <div class="tab-content-modules">
                             <div class="tab-content">
                                   <div class="graph-chart">
-                                     <div id="legend"></div>
-                                     <span>Hide Graph<img src="img/eye.svg" class="show-eye-img"><img src="img/hide.svg" class="hide-eye-img"></span>
+                                     <div id="legend1" class="legends"></div>
+                                    <span>
+                                        <div class="show-eye-img" onclick="toggelGraphDisplay($(this))">
+                                            <span class="graph-display-text">Show Graph </span>
+                                            <img src="img/eye.svg" data-visible="true" >
+                                        </div>
+                                        <div class="hide-eye-img" onclick="toggelGraphDisplay($(this))" style="display: none;">
+                                            <span class="graph-display-text">Hide Graph</span>
+                                            <img src="img/hide.svg" data-visible="false" >
+                                        </div>
+                                        
+                                    </span>
                                   </div>
-                                <div id="tab1" class="tab-pane fade in active chart-bar-custom">
+                                <div id="tabguest1" class="tab-pane fade in active chart-bar-custom">
                                     <span>Last 7 days</span>
                                     <div class="grapgh-chart-bar">
                                         <canvas id="chart1"></canvas>
                                     </div>
                                 </div>
-                                <div id="tab2" class="tab-pane fade">
+                                <div id="tabguest2" class="tab-pane fade">
                                     <span>Last 30 days</span>
                                     <p>This is the content of Tab 2.</p>
                                 </div>
-                                <div id="tab3" class="tab-pane fade">
+                                <div id="tabguest3" class="tab-pane fade">
                                     <span>Last 60 days</span>
                                     <p>This is the content of Tab 2.</p>
                                 </div>
@@ -154,14 +174,14 @@
                         <div class="col-md-6">
                             <div class="modules-action">
                                 <div class="modules-cart-performance">
-                                   <h3>Guest Performance</h3>
+                                   <h3>Location Performance</h3>
                                    <span>View Guest <img src="img/arwow-msg.svg"></span>
                                 </div>
                                 <div class="modules-cart-performance action">
                                    <ul class="nav nav-tabs">
-                                       <li class="active"><a data-toggle="tab" href="#tab0">7 days</a></li>
-                                       <li><a data-toggle="tab" href="#tab6">30 days</a></li>
-                                       <li><a data-toggle="tab" href="#tab5">60 days</a></li>
+                                       <li class="active"><a data-toggle="tab" href="#tabLocation1">7 days</a></li>
+                                       <li><a data-toggle="tab" href="#tabLocation2">30 days</a></li>
+                                       <li><a data-toggle="tab" href="#tabLocation3">60 days</a></li>
                                    </ul>
                                    <span class="move-block">Move Block<img src="img/move.svg"></span>
                                </div>
@@ -169,7 +189,7 @@
                                    <div class="modules-vlg">
                                        <span class="percentage">+25%<img src="img/Vector.svg"></span>
                                        <span class="value">350</span>
-                                       <span class="vlg-tootip">Visits<img src="img/tooltip.svg"></span>
+                                       <span class="vlg-tootip">Name<img src="img/tooltip.svg"></span>
                                    </div>
                                    <div class="modules-vlg">
                                        <span class="percentage stage-n">+25%<img src="img/arrow-neg.svg"></span>
@@ -178,65 +198,570 @@
                                    </div>
                                    <div class="modules-vlg">
                                        <span class="percentage">+25%<img src="img/Vector.svg"></span>
-                                       <span class="value">350</span>
+                                       <span class="value">400</span>
                                        <span class="vlg-tootip">Guests<img src="img/tooltip.svg"></span>
                                    </div>
                                </div>
                                <div class="tab-content-modules">
                                    <div class="tab-content">
-                                       <div id="tab0" class="tab-pane fade in active chart-bar-custom">
+                                    <div class="graph-chart">
+                                        <div id="legend2" class="legends"></div>
+                                        <div class="show-eye-img" onclick="toggelGraphDisplay($(this))">
+                                            <span class="graph-display-text">Show Graph </span>
+                                            <img src="img/eye.svg" data-visible="true" >
+                                        </div>
+                                        <div class="hide-eye-img" onclick="toggelGraphDisplay($(this))" style="display: none;">
+                                            <span class="graph-display-text">Hide Graph</span>
+                                            <img src="img/hide.svg" data-visible="false" >
+                                        </div>
+                                     </div>
+                                       <div id="tabLocation1" class="tab-pane fade in active chart-bar-custom">
                                            <span>Last 7 days</span>
-                                           <div>
+                                           <div class="grapgh-chart-bar">
                                             <canvas id="chart2"></canvas>
                                           </div>
                                        </div>
-                                       <div id="tab6" class="tab-pane fade">
+                                       <div id="tabLocation2" class="tab-pane fade">
                                            <h3>Tab 2 Content</h3>
                                            <p>This is the content of Tab 2.</p>
                                        </div>
+                                       <div id="tabLocation3" class="tab-pane fade">
+                                        <h3>Tab 3 Content</h3>
+                                        <p>This is the content of Tab 2.</p>
+                                    </div>
                                    </div>
                                </div>
-                                </div>
+                            </div>
                         </div>
-                       </div>
+                        <div class="col-md-12">
+                            <div class="modules-action">
+                               <div class="modules-cart-performance">
+                                   <h3>Email Performance <span>View Guest <img src="img/arwow-msg.svg"></span></h3>
+                                   <div class="modules-cart-performance">
+                                       <ul class="nav nav-tabs">
+                                           <li class="active"><a data-toggle="tab" href="#tabemail1">7 days</a></li>
+                                           <li><a data-toggle="tab" href="#tabeamil2">30 days</a></li>
+                                           <li><a data-toggle="tab" href="#tabemail3">60 days</a></li>
+                                       </ul>
+                                   </div>
+                                   <span class="move-block">Move Block<img src="img/move.svg"></span>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-5 email-modules-col">
+                                        <div class="email-modules-row">
+                                            <div class="email-modules-column">
+                                              <div class="email-performance">
+                                                <span class="percentage">+25%<img src="img/Vector.svg"></span>
+                                                <span class="value">45%</span>
+                                                <span class="vlg-tootip">Click Rate<img src="img/tooltip.svg"></span>
+                                              </div>
+                                            </div>
+                                            <div class="email-modules-column">
+                                              <div class="email-performance">
+                                                <span class="percentage ">+25%<img src="img/Vector.svg"></span>
+                                                <span class="value">45%</span>
+                                                <span class="vlg-tootip">Opens Rate<img src="img/tooltip.svg"></span>
+                                              </div>
+                                            </div>
+                                            <div class="email-modules-column">
+                                                <div class="email-performance">
+                                                    <span class="percentage">+25%<img src="img/Vector.svg"></span>
+                                                    <span class="value">45%</span>
+                                                    <span class="vlg-tootip">Clicks per unique opens<img src="img/tooltip.svg"></span>
+                                                </div>
+                                            </div>
+                                            <div class="email-modules-column">
+                                                <div class="email-performance ">
+                                                    <span class="percentage stage-n">+25%<img src="img/arrow-neg.svg"></span>
+                                                    <span class="value">3%</span>
+                                                    <span class="vlg-tootip">Unsubscribed<img src="img/tooltip.svg"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="tab-content-modules">
+                                            <div class="tab-content">
+                                             <div class="graph-chart">
+                                                 <div id="legend3" class="legends"></div>
+                                                 <div class="show-eye-img" onclick="toggelGraphDisplay($(this))">
+                                                    <span class="graph-display-text">Show Graph </span>
+                                                    <img src="img/eye.svg" data-visible="true" >
+                                                </div>
+                                                <div class="hide-eye-img" onclick="toggelGraphDisplay($(this))" style="display: none;">
+                                                    <span class="graph-display-text">Hide Graph</span>
+                                                    <img src="img/hide.svg" data-visible="false" >
+                                                </div>
+                                              </div>
+                                                <div id="tabemail1" class="tab-pane fade in active chart-bar-custom">
+                                                    <span>Last 7 days</span>
+                                                    <div>
+                                                     <canvas id="chart3"></canvas>
+                                                   </div>
+                                                </div>
+                                                <div id="tabemail2" class="tab-pane fade">
+                                                    <h3>Tab 2 Content</h3>
+                                                    <p>This is the content of Tab 2.</p>
+                                                </div>
+                                                <div id="tab3" class="tab-pane fade">
+                                                 <h3>Tab 3 Content</h3>
+                                                 <p>This is the content of Tab 2.</p>
+                                             </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                           </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="modules-action">
+                                <div class="modules-cart-performance">
+                                   <h3>QR Codes Performance</h3>
+                                   <span>QR Codes <img src="img/arwow-msg.svg"></span>
+                                </div>
+                                <div class="modules-cart-performance action">
+                                   <ul class="nav nav-tabs">
+                                       <li class="active"><a data-toggle="tab" href="#tabLocation1">7 days</a></li>
+                                       <li><a data-toggle="tab" href="#tabLocation2">30 days</a></li>
+                                       <li><a data-toggle="tab" href="#tabLocation3">60 days</a></li>
+                                   </ul>
+                                   <span class="move-block">Move Block<img src="img/move.svg"></span>
+                               </div>
+                               <div class="vis-log-guest">
+                                   <div class="modules-vlg-qr">
+                                       <span class="percentage">+25%<img src="img/Vector.svg"></span>
+                                       <span class="value">4523</span>
+                                       <span class="vlg-tootip">Name<img src="img/tooltip.svg"></span>
+                                   </div>
+                                   <div class="modules-vlg-qr">
+                                       <span class="percentage stage-n">+25%<img src="img/arrow-neg.svg"></span>
+                                       <span class="value">4523</span>
+                                       <span class="vlg-tootip">Scan<img src="img/tooltip.svg"></span>
+                                   </div>
+                               </div>
+                               <div class="tab-content-modules">
+                                   <div class="tab-content">
+                                    <div class="graph-chart">
+                                        <div id="legend4"></div>
+                                        <div class="show-eye-img" onclick="toggelGraphDisplay($(this))">
+                                            <span class="graph-display-text">Show Graph </span>
+                                            <img src="img/eye.svg" data-visible="true" >
+                                        </div>
+                                        <div class="hide-eye-img" onclick="toggelGraphDisplay($(this))" style="display: none;">
+                                            <span class="graph-display-text">Hide Graph</span>
+                                            <img src="img/hide.svg" data-visible="false" >
+                                        </div>
+                                        </div>
+                                       <div id="tabLocation1" class="tab-pane fade in active chart-bar-custom">
+                                           <span>Last 7 days</span>
+                                           <div>
+                                            <canvas id="chart4"></canvas>
+                                          </div>
+                                       </div>
+                                       <div id="tabLocation2" class="tab-pane fade">
+                                           <h3>Tab 2 Content</h3>
+                                           <p>This is the content of Tab 2.</p>
+                                       </div>
+                                       <div id="tabLocation3" class="tab-pane fade">
+                                        <h3>Tab 3 Content</h3>
+                                        <p>This is the content of Tab 2.</p>
+                                    </div>
+                                   </div>
+                               </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="modules-action">
+                                <div class="modules-cart-performance">
+                                   <h3>Review Automator Performance</h3>
+                                   <span>Review Automator<img src="img/arwow-msg.svg"></span>
+                                </div>
+                                <div class="modules-cart-performance action">
+                                   <ul class="nav nav-tabs">
+                                       <li class="active"><a data-toggle="tab" href="#tabLocation1">7 days</a></li>
+                                       <li><a data-toggle="tab" href="#tabLocation2">30 days</a></li>
+                                       <li><a data-toggle="tab" href="#tabLocation3">60 days</a></li>
+                                   </ul>
+                                   <span class="move-block">Move Block<img src="img/move.svg"></span>
+                               </div>
+                               <div class="vis-log-guest">
+                                   <div class="modules-vlg">
+                                       <span class="percentage">+25%<img src="img/Vector.svg"></span>
+                                       <span class="value">350</span>
+                                       <span class="vlg-tootip">Opens<img src="img/tooltip.svg"></span>
+                                   </div>
+                                   <div class="modules-vlg">
+                                    <span class="percentage">+25%<img src="img/Vector.svg"></span>
+                                    <span class="value">350</span>
+                                    <span class="vlg-tootip">Clicks<img src="img/tooltip.svg"></span>
+                                </div>
+                                   <div class="modules-vlg">
+                                       <span class="percentage stage-n">+25%<img src="img/arrow-neg.svg"></span>
+                                       <span class="value">400</span>
+                                       <span class="vlg-tootip">New Review<img src="img/tooltip.svg"></span>
+                                   </div>
+                               </div>
+                               <div class="tab-content-modules">
+                                   <div class="tab-content">
+                                    <div class="graph-chart">
+                                        <div id="legend5"></div>
+                                        <div class="show-eye-img" onclick="toggelGraphDisplay($(this))">
+                                            <span class="graph-display-text">Show Graph </span>
+                                            <img src="img/eye.svg" data-visible="true" >
+                                        </div>
+                                        <div class="hide-eye-img" onclick="toggelGraphDisplay($(this))" style="display: none;">
+                                            <span class="graph-display-text">Hide Graph</span>
+                                            <img src="img/hide.svg" data-visible="false" >
+                                        </div>
+                                     </div>
+                                       <div id="tabLocation1" class="tab-pane fade in active chart-bar-custom">
+                                           <span>Last 7 days</span>
+                                           <div class="grapgh-chart-bar">
+                                            <canvas id="chart5"></canvas>
+                                          </div>
+                                       </div>
+                                       <div id="tabLocation2" class="tab-pane fade">
+                                           <h3>Tab 2 Content</h3>
+                                           <p>This is the content of Tab 2.</p>
+                                       </div>
+                                       <div id="tabLocation3" class="tab-pane fade">
+                                        <h3>Tab 3 Content</h3>
+                                        <p>This is the content of Tab 2.</p>
+                                    </div>
+                                   </div>
+                               </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <h2>Marketing Components</h2>
+                            <div class="modules-action">
+                                <div class="modules-cart-performance">
+                                    <h3>Top performing Interactions</h3>
+                                    <div class="modules-cart-performance">
+                                        <p>Oct 28, 2023 - Nov 27, 2023</p>
+                                    </div>
+                                    <span class="move-block">Move Block<img src="img/move.svg"></span>
+                                 </div>
+                                 <div class="tablerecenttable table-responsive">
+                                <table style="width: 100%; margin-top: 40px;" class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Status</th>
+                                            <th>Type</th>
+                                            <th>Deliveries</th>
+                                            <th>% Visited</th>
+                                            <th>Perfect Change</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Abandon Cart</td>
+                                            <td>Active</td>
+                                            <td><span><img src="img/arrowup.svg"></span>Email</td>
+                                            <td>10</td>
+                                            <td>24%</td> 
+                                            <td>10%</td> 
+                                        </tr>
+                                        <tr>
+                                            <td>Christmas Sale</td>
+                                            <td>Active</td>
+                                            <td><span><img src="img/arrowup.svg"></span>Email</td>
+                                            <td>10</td>
+                                            <td>24%</td> 
+                                            <td>10%</td> 
+                                        </tr>
+                                        <tr>
+                                            <td>New Year Sale</td>
+                                            <td>Active</td>
+                                            <td><span><img src="img/arrowup.svg"></span>Email</td>
+                                            <td>10</td>
+                                            <td>24%</td> 
+                                            <td>10%</td> 
+                                        </tr>
+                                    </tbody>
+                                </table>
+                               </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="modules-action">
+                                    <div class="modules-cart-performance">
+                                        <h3>Recent blast campaigns</h3>
+                                        <div class="modules-cart-performance">
+                                            <p>Oct 28, 2023 - Nov 27, 2023</p>
+                                        </div>
+                                        <span class="move-block">Move Block<img src="img/move.svg"></span>
+                                     </div>
+                                    <div class="tablerecent table-responsive">
+                                    <table style="width: 100%; margin-top: 40px;" class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Type</th>
+                                                <th>Deliveries</th>
+                                                <th>% Visited</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Abandon Cart</td>
+                                                <td><span><img src="img/arrowup.svg"></span>Email</td>
+                                                <td>10%</td>
+                                                <td>24%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Christmas Sale</td>
+                                                <td><span><img src="img/arrowup.svg"></span>Email</td>
+                                                <td>10%</td>
+                                                <td>24%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>New Year Sale</td>
+                                                <td><span><img src="img/arrowup.svg"></span>Email</td>
+                                                <td>10%</td>
+                                                <td>24%</td>  
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="modules-action">
+                                    <div class="modules-cart-performance">
+                                        <h3>Recent blast campaigns</h3>
+                                        <div class="modules-cart-performance">
+                                            <p>Oct 28, 2023 - Nov 27, 2023</p>
+                                        </div>
+                                        <span class="move-block">Move Block<img src="img/move.svg"></span>
+                                     </div>
+                                    <div class="tablerecent table-responsive">
+                                    <table style="width: 100%; margin-top: 40px;" class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Visitors</th>
+                                                <th>Captures</th>
+                                                <th>Conversion Rate</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Abandon Cart</td>
+                                                <td><span><img src="img/arrowup.svg"></span>Email</td>
+                                                <td>10%</td>
+                                                <td>24%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Christmas Sale</td>
+                                                <td><span><img src="img/arrowup.svg"></span>Email</td>
+                                                <td>10%</td>
+                                                <td>24%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>New Year Sale</td>
+                                                <td><span><img src="img/arrowup.svg"></span>Email</td>
+                                                <td>10%</td>
+                                                <td>24%</td>  
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    </div>
-                </div>
-    </section>
+               </div>
+        </div>
+    </div>
+</section>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script>
-  // Get the chart canvas and context
-var ctx1 = document.getElementById('chart1').getContext('2d');
+  // Chart 1
+  var ctx1 = document.getElementById('chart1').getContext('2d');
+        var chart1 = new Chart(ctx1, {
+            type: 'bar',
+            data: {
+                labels: ['01-Dec', '02-Dec', '03-Dec', '04-Dec', '05-Dec', '06-Dec', '07-Dec'],
+                datasets: [{
+                    label: 'Visits',
+                    data: [19, 20, 25, 19, 25, 25, 25],
+                    backgroundColor: '#46D68C',
+                },
+                {
+                    label: 'Logins',
+                    data: [19, 20, 25, 19, 25, 25, 25],
+                    backgroundColor: '#705CFE',
+                },
+                {
+                    label: 'Guest',
+                    data: [19, 20, 25, 19, 25, 25, 25],
+                    backgroundColor: '#1DABF2',
+                }]
+            },
+            options: {
+                animation: {
+                    duration: 0
+                },
+                scales: {
+                    x: {
+                        stacked: true
+                    },
+                    y: {
+                        display: false,
+                        stacked: true
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+                
+            }
+        });
 
-// Create the chart
-var chart1 = new Chart(ctx1, {
+        var legend1 = document.getElementById('legend1');
+        chart1.data.datasets.forEach(function(dataset, index) {
+            legend1.innerHTML += `<div onclick="toggleDatasetVisibility(chart1, ${index}, 'legend1')"><span style="background-color:${dataset.backgroundColor}"></span>${dataset.label}</div>`;
+        });
+
+        // Chart 2
+        var ctx2 = document.getElementById('chart2').getContext('2d');
+        var chart2 = new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: ['01-Dec', '02-Dec', '03-Dec', '04-Dec', '05-Dec', '06-Dec', '07-Dec'],
+                datasets: [{
+                    label: 'Name',
+                    data: [19, 20, 25, 19, 25, 25, 25],
+                    backgroundColor: '#46D68C',
+                },
+                {
+                    label: 'Visits',
+                    data: [19, 20, 25, 19, 25, 25, 25],
+                    backgroundColor: '#705CFE',
+                },
+                {
+                    label: 'Guests',
+                    data: [19, 20, 25, 19, 25, 25, 25],
+                    backgroundColor: '#1DABF2',
+                }]
+            },
+            options: {
+                animation: {
+                    duration: 0
+                },
+                scales: {
+                    x: {
+                        stacked: true
+                    },
+                    y: {
+                        display: false,
+                        stacked: true
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+
+        var legend2 = document.getElementById('legend2');
+        chart2.data.datasets.forEach(function(dataset, index) {
+            legend2.innerHTML += `<div onclick="toggleDatasetVisibility(chart2, ${index}, 'legend2')"><span style="background-color:${dataset.backgroundColor}"></span>${dataset.label}</div>`;
+        });
+
+        // Chart 3
+        var ctx3 = document.getElementById('chart3').getContext('2d');
+        var chart3 = new Chart(ctx3, {
+            type: 'bar',
+            data: {
+                labels: ['01-Dec', '02-Dec', '03-Dec', '04-Dec', '05-Dec', '06-Dec', '07-Dec'],
+                datasets: [{
+                    label: 'Clicks Rate',
+                    data: [19, 20, 25, 19, 25, 25, 25],
+                    backgroundColor: '#46D68C',
+                },
+                {
+                    label: 'Open Rate',
+                    data: [19, 20, 25, 19, 25, 25, 25],
+                    backgroundColor: '#705CFE',
+                },
+                {
+                    label: 'Clicks per unique opens',
+                    data: [19, 20, 25, 19, 25, 25, 25],
+                    backgroundColor: '#1DABF2',
+                },
+                {
+                    label: 'Unsubscribed',
+                    data: [5, 5, 5, 5, 5, 5, 5],
+                    backgroundColor: '#FF7979',
+                }]
+            },
+            options: {
+                animation: {
+                    duration: 0
+                },
+                scales: {
+                    x: {
+                        stacked: true
+                    },
+                    y: {
+                        display: false,
+                        stacked: true
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+
+        var legend3 = document.getElementById('legend3');
+        chart3.data.datasets.forEach(function(dataset, index) {
+            legend3.innerHTML += `<div onclick="toggleDatasetVisibility(chart3, ${index}, 'legend3')"><span style="background-color:${dataset.backgroundColor}"></span>${dataset.label}</div>`;
+        });
+
+        function toggleDatasetVisibility(chart, index, legendId) {
+            var meta = chart.getDatasetMeta(index);
+            meta.hidden = meta.hidden === null ? !chart.data.datasets[index].hidden : null;
+            chart.update();
+
+            var legendItems = document.querySelectorAll(`#${legendId} div`);
+            legendItems[index].classList.toggle('line-through');
+        }
+
+ // Chart 4
+ var ctx3 = document.getElementById('chart4').getContext('2d');
+var chart4 = new Chart(ctx3, {
     type: 'bar',
     data: {
         labels: ['01-Dec', '02-Dec', '03-Dec', '04-Dec', '05-Dec', '06-Dec', '07-Dec'],
         datasets: [{
-                label: 'Visits',
+                label: 'Name',
                 data: [19, 20, 25, 19, 25, 25, 25],
                 backgroundColor: '#46D68C',
             },
             {
-                label: 'Logins',
+                label: 'Scans',
                 data: [19, 20, 25, 19, 25, 25, 25],
                 backgroundColor: '#705CFE',
-            },
-            {
-                label: 'Guest',
-                data: [19, 20, 25, 19, 25, 25, 25],
-                backgroundColor: '#1DABF2',
             }
-
         ]
     },
     options: {
         animation: {
-            duration: 0 // Set the duration of the animation to 0 milliseconds
+            duration: 0
         },
         scales: {
             x: {
@@ -249,79 +774,116 @@ var chart1 = new Chart(ctx1, {
         },
         plugins: {
             legend: {
-                display: false // Hide the default legend
+                display: false
             }
         }
     }
 });
 
-  // Populate the legend div
-    var legend = document.getElementById('legend');
-    chart1.data.datasets.forEach(function(dataset, index) {
-        legend.innerHTML += `<div onclick="toggleDatasetVisibility(${index})"><span style="background-color:${dataset.backgroundColor}"></span>${dataset.label}</div>`;
-    });
+var legend4 = document.getElementById('legend4');
+chart4.data.datasets.forEach(function(dataset, index) {
+    legend4.innerHTML += `<div onclick="toggleDatasetVisibility(chart4, ${index}, 'legend4')"><span style="background-color:${dataset.backgroundColor}"></span>${dataset.label}</div>`;
+});
 
-    function toggleDatasetVisibility(index) {
-    var ci = chart1;
-    var meta = ci.getDatasetMeta(index);
-    meta.hidden = meta.hidden === null ? !ci.data.datasets[index].hidden : null;
-    ci.update();
+function toggleDatasetVisibility(chart, index, legendId) {
+    var meta = chart.getDatasetMeta(index);
+    meta.hidden = meta.hidden === null ? !chart.data.datasets[index].hidden : null;
+    chart.update();
 
-    // Toggle line-through style for the "Visits" label in the legend
-    var legendItems = document.querySelectorAll('#legend div');
+    var legendItems = document.querySelectorAll(`#${legendId} div`);
     legendItems[index].classList.toggle('line-through');
 }
 
 
-
-
-
-
-
-
-
-
-    // chart 2 data//
-    var ctx2 = document.getElementById('chart2').getContext('2d');
-        var chart2 = new Chart(ctx2, {
-        type: 'bar',
-        data: {
-            labels: ['01-Dec', '02-Dec', '03-Dec', '04-Dec', '05-Dec', '06-Dec', '07-Dec'],
-            datasets: [{
-                    label: 'Visits',
-                    data: [19, 20, 25, 19, 25, 25, 25],
-                    backgroundColor: '#46D68C',
-                },
-                {
-                    label: 'Logins',
-                    data: [19, 20, 25, 19, 25, 25, 25], // Adjusted the data accordingly
-                    backgroundColor: '#705CFE',
-                },
-                {
-                    label: 'Guests',
-                    data: [19, 20, 25, 19, 25, 25, 25], // Adjusted the data accordingly
-                    backgroundColor: '#1DABF2',
-                }
-            ]
+        // Chart 5
+        var ctx5 = document.getElementById('chart5').getContext('2d');
+var chart5 = new Chart(ctx5, {
+    type: 'bar',
+    data: {
+        labels: ['01-Dec', '02-Dec', '03-Dec', '04-Dec', '05-Dec', '06-Dec', '07-Dec'],
+        datasets: [{
+                label: 'Opens',
+                data: [19, 20, 25, 19, 25, 25, 25],
+                backgroundColor: '#46D68C',
+            },
+            {
+                label: 'Clicks',
+                data: [19, 20, 25, 19, 25, 25, 25],
+                backgroundColor: '#705CFE',
+            },
+            {
+                label: 'New Reviews',
+                data: [19, 20, 25, 19, 25, 25, 25],
+                backgroundColor: '#1DABF2',
+            }
+        ]
+    },
+    options: {
+        animation: {
+            duration: 0
         },
-        options: {
-            animation: {
-                    duration: 0 // Set the duration of the animation to 0 milliseconds
-                },
-            scales: {
-                x: {
-                    stacked: true
-                },
-                y: {
-                    display: false,
-                    stacked: true
-                }
+        scales: {
+            x: {
+                stacked: true
+            },
+            y: {
+                display: false,
+                stacked: true
+            }
+        },
+        plugins: {
+            legend: {
+                display: false
             }
         }
-    });
+    }
+});
+
+var legend5 = document.getElementById('legend5');
+chart5.data.datasets.forEach(function(dataset, index) {
+    legend5.innerHTML += `<div onclick="toggleDatasetVisibility(chart5, ${index}, 'legend5')"><span style="background-color:${dataset.backgroundColor}"></span>${dataset.label}</div>`;
+});
+
+function toggleDatasetVisibility(chart, index, legendId) {
+    var meta = chart.getDatasetMeta(index);
+    meta.hidden = meta.hidden === null ? !chart.data.datasets[index].hidden : null;
+    chart.update();
+
+    var legendItems = document.querySelectorAll(`#${legendId} div`);
+    legendItems[index].classList.toggle('line-through');
+}
+
+
+///click on hide graph//
+var toggelGraphDisplay = (elm) => {
+    var contentParent =  elm.parents('.tab-content')
+    // if(elm.attr('data-visible')){
+    //     elm.attr('data-visible','false')
+        elm.hide();
+        if(elm.hasClass('show-eye-img')){
+            contentParent.find('.hide-eye-img').show()
+            contentParent.find('.legends').find('div').hide()
+            contentParent.find('.tab-pane.active').hide()
+            contentParent.find('.graph-display-text').text('Show Graph')
+        }else if(elm.hasClass('hide-eye-img')){
+            contentParent.find('.show-eye-img').show()
+            contentParent.find('.legends').find('div').show()
+            contentParent.find('.tab-pane.active').show()
+            contentParent.find('.graph-display-text').text('Hide Graph')
+        }
+    // }else{
+    //     elm.attr('data-visible','true')
+    //     elm.show();
+    // }
+}
+
 </script>
-ript>
-    
-       
+ 
+<!-- //drag drop// -->
+<script>
+    $( function() {
+      $( "#sortable" ).sortable();
+    } );
+    </script>
   </body>
   </html>
