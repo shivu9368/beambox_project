@@ -119,16 +119,17 @@
     box-shadow: 5px 9px 60px 10px rgba(50, 117, 208, 0.05);
     background-color: #fff;
     border-radius: 10px;
-    padding:15px 20px;    
+    padding:25px 12px;    
     margin:15px 0 ;
 }
 .modules-cart-performance{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
     gap:5px;
     &.action{
-        margin-top:15px;
+        margin-top:30px;
     }
     h3{
         font-weight:450;
@@ -205,7 +206,9 @@
     .graph-chart{
         display: flex;
         align-items: center;
+        flex-wrap: wrap;
         justify-content: space-between;
+        margin:10px 0;
     }
 }
 .vis-log-guest{
@@ -263,6 +266,8 @@
     display: flex;
     justify-content:left;
     margin: 13px 0 13px 0;
+    font-size: 13px;
+    font-weight: 500;
 }
 
 #legend1 div, #legend2 div, #legend3 div, #legend4 div, #legend5 div{
@@ -275,6 +280,7 @@
     width: 15px;
     height: 15px;
     margin-right: 5px;
+    vertical-align:sub;
 }
 
 .line-through {
@@ -283,7 +289,7 @@
 .email-performance{
     border: 1px solid #E7EBEF;
     border-radius: 10px;
-    padding: 7px 7px 15px;
+    padding: 15px 7px 15px;
     margin:10px;
     .percentage{
         display: block;
@@ -417,12 +423,22 @@ table thead tr th, table tbody tr td{
 .email-modules-col{
   margin-top: 25px;
   .email-performance{
-    padding:15px 7px 55px;
+    padding:23px 7px 55px;
     .value{
         margin-top: 10px;
     }
   }
 }
+.show-eye-img img, .hide-eye-img img{
+    border:1px solid #ddd;
+    padding:3px;
+    border-radius:4px;
+}
+.hr{
+    border: 1px solid #CCD5DF;
+    margin:40px 0;
+}
+
 @media screen and (min-width:992px) {
     .col-md-site-bar{
       width:20%;

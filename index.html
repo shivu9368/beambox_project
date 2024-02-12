@@ -11,11 +11,6 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <link href="style.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <style>
-    #sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; text-align: right;}
-   #sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
-   #sortable li span { position: absolute; margin-left: -1.3em; }
-  </style>
   </head>
 <body>
 <section id="beambox">
@@ -104,8 +99,9 @@
                         <h1>Performance-Modules</h1>
                     </div>
                   <div class="row">
+                    <div id="example5">
                     <div class="col-md-6">
-                        <div class="modules-action dd">
+                        <div class="modules-action move">
                          <div class="modules-cart-performance">
                             <h3>Guest Performance</h3>
                             <span>View Guest <img src="img/arwow-msg.svg"></span>
@@ -116,9 +112,7 @@
                                 <li><a data-toggle="tab" href="#tabguest2">30 days</a></li>
                                 <li><a data-toggle="tab" href="#tabguest3">60 days</a></li>
                             </ul>
-                            <div  id="sortable">
-                            <span class="move-block">Move Block<img src="img/move.svg"></span>
-                            </div>
+                              <span class="move-block">Move Block<img src="img/move.svg" class="handle"></span>
                         </div>
                         <div class="vis-log-guest ">
                             <div class="modules-vlg">
@@ -183,7 +177,7 @@
                                        <li><a data-toggle="tab" href="#tabLocation2">30 days</a></li>
                                        <li><a data-toggle="tab" href="#tabLocation3">60 days</a></li>
                                    </ul>
-                                   <span class="move-block">Move Block<img src="img/move.svg"></span>
+                                   <span class="move-block">Move Block<img src="img/move.svg" class="handle"></span>
                                </div>
                                <div class="vis-log-guest">
                                    <div class="modules-vlg">
@@ -244,7 +238,7 @@
                                            <li><a data-toggle="tab" href="#tabemail3">60 days</a></li>
                                        </ul>
                                    </div>
-                                   <span class="move-block">Move Block<img src="img/move.svg"></span>
+                                   <span class="move-block">Move Block<img src="img/move.svg" class="handle"></span>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-5 email-modules-col">
@@ -325,7 +319,7 @@
                                        <li><a data-toggle="tab" href="#tabLocation2">30 days</a></li>
                                        <li><a data-toggle="tab" href="#tabLocation3">60 days</a></li>
                                    </ul>
-                                   <span class="move-block">Move Block<img src="img/move.svg"></span>
+                                   <span class="move-block">Move Block<img src="img/move.svg" class="handle"></span>
                                </div>
                                <div class="vis-log-guest">
                                    <div class="modules-vlg-qr">
@@ -382,7 +376,7 @@
                                        <li><a data-toggle="tab" href="#tabLocation2">30 days</a></li>
                                        <li><a data-toggle="tab" href="#tabLocation3">60 days</a></li>
                                    </ul>
-                                   <span class="move-block">Move Block<img src="img/move.svg"></span>
+                                   <span class="move-block">Move Block<img src="img/move.svg" class="handle"></span>
                                </div>
                                <div class="vis-log-guest">
                                    <div class="modules-vlg">
@@ -433,6 +427,7 @@
                             </div>
                         </div>
                         <div class="col-md-12">
+                          <hr class="hr">
                             <h2>Marketing Components</h2>
                             <div class="modules-action">
                                 <div class="modules-cart-performance">
@@ -440,7 +435,7 @@
                                     <div class="modules-cart-performance">
                                         <p>Oct 28, 2023 - Nov 27, 2023</p>
                                     </div>
-                                    <span class="move-block">Move Block<img src="img/move.svg"></span>
+                                    <span class="move-block">Move Block<img src="img/move.svg" class="handle"></span>
                                  </div>
                                  <div class="tablerecenttable table-responsive">
                                 <table style="width: 100%; margin-top: 40px;" class="table">
@@ -571,65 +566,86 @@
                             </div>
                         </div>
                     </div>
+                    </div>
                </div>
         </div>
     </div>
 </section>
 
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script>
   // Chart 1
-  var ctx1 = document.getElementById('chart1').getContext('2d');
-        var chart1 = new Chart(ctx1, {
-            type: 'bar',
-            data: {
-                labels: ['01-Dec', '02-Dec', '03-Dec', '04-Dec', '05-Dec', '06-Dec', '07-Dec'],
-                datasets: [{
-                    label: 'Visits',
-                    data: [19, 20, 25, 19, 25, 25, 25],
-                    backgroundColor: '#46D68C',
-                },
-                {
-                    label: 'Logins',
-                    data: [19, 20, 25, 19, 25, 25, 25],
-                    backgroundColor: '#705CFE',
-                },
-                {
-                    label: 'Guest',
-                    data: [19, 20, 25, 19, 25, 25, 25],
-                    backgroundColor: '#1DABF2',
-                }]
+var ctx1 = document.getElementById('chart1').getContext('2d');
+var chart1 = new Chart(ctx1, {
+    type: 'bar',
+    data: {
+        labels: ['01-Dec', '02-Dec', '03-Dec', '04-Dec', '05-Dec', '06-Dec', '07-Dec'],
+        datasets: [
+            {
+                label: 'Visits',
+                data: [19, 20, 25, 19, 25, 25, 25],
+                backgroundColor: '#46D68C',
             },
-            options: {
-                animation: {
-                    duration: 0
+            {
+                label: 'Logins',
+                data: [19, 20, 25, 19, 25, 25, 25],
+                backgroundColor: '#705CFE',
+            },
+            {
+                label: 'Guest',
+                data: [19, 20, 25, 19, 25, 25, 25],
+                backgroundColor: '#1DABF2',
+            }
+        ]
+    },
+    options: {
+        animation: {
+            duration: 0
+        },
+        scales: {
+            x: {
+                stacked: true
+            },
+            y: {
+                display: false,
+                stacked: true
+            }
+        },
+        plugins: {
+            legend: {
+                display: false
+            },
+            tooltip: {
+                enabled: true,
+                mode: 'index',
+                intersect: false,
+                backgroundColor: 'rgba(255, 255, 255, 1)',
+                padding:22, 
+                bodyFont: {
+                    size:20 // Set the font size here
                 },
-                scales: {
-                    x: {
-                        stacked: true
-                    },
-                    y: {
-                        display: false,
-                        stacked: true
-                    }
-                },
-                plugins: {
-                    legend: {
-                        display: false
+                 position: 'nearest',
+                 callbacks: {
+                    labelTextColor: function(context) {
+                        return '#543453';
                     }
                 }
-                
             }
-        });
+        }
+    }
+});
 
-        var legend1 = document.getElementById('legend1');
-        chart1.data.datasets.forEach(function(dataset, index) {
-            legend1.innerHTML += `<div onclick="toggleDatasetVisibility(chart1, ${index}, 'legend1')"><span style="background-color:${dataset.backgroundColor}"></span>${dataset.label}</div>`;
-        });
+var legend1 = document.getElementById('legend1');
+chart1.data.datasets.forEach(function(dataset, index) {
+    legend1.innerHTML += `<div onclick="toggleDatasetVisibility(chart1, ${index}, 'legend1')"><span style="background-color:${dataset.backgroundColor}"></span>${dataset.label}</div>`;
+});
+
+
 
         // Chart 2
         var ctx2 = document.getElementById('chart2').getContext('2d');
@@ -669,7 +685,23 @@
                 plugins: {
                     legend: {
                         display: false
+                    },
+                    tooltip: {
+                    enabled: true,
+                    mode: 'index',
+                    intersect: false,
+                    backgroundColor: 'rgba(255, 255, 255, 1)',
+                    padding: 15, 
+                    bodyFont: {
+                        size:15 // Set the font size here
+                    },
+                    callbacks: {
+                        labelTextColor: function(context) {
+                            return 'black'; // set tooltip label text color to black
+                        }
                     }
+                }
+                    
                 }
             }
         });
@@ -722,8 +754,23 @@
                 plugins: {
                     legend: {
                         display: false
+                    },
+                    tooltip: {
+                    enabled: true,
+                    mode: 'index',
+                    intersect: false,
+                    backgroundColor: 'rgba(255, 255, 255, 1)',
+                    padding: 15, 
+                    bodyFont: {
+                        size:15 // Set the font size here
+                    },
+                   callbacks: {
+                    labelTextColor: function(context) {
+                        return 'black'; // set tooltip label text color to black
                     }
                 }
+                }
+             }
             }
         });
 
@@ -775,6 +822,21 @@ var chart4 = new Chart(ctx3, {
         plugins: {
             legend: {
                 display: false
+            },
+            tooltip: {
+                enabled: true,
+                mode: 'index',
+                intersect: false,
+                backgroundColor: 'rgba(255, 255, 255, 1)',
+                padding:15, 
+                bodyFont: {
+                    size:15 // Set the font size here
+                },
+                callbacks: {
+                    labelTextColor: function(context) {
+                        return 'black'; // set tooltip label text color to black
+                    }
+                }
             }
         }
     }
@@ -834,6 +896,21 @@ var chart5 = new Chart(ctx5, {
         plugins: {
             legend: {
                 display: false
+            },
+            tooltip: {
+                enabled: true,
+                mode: 'index',
+                intersect: false,
+                backgroundColor: 'rgba(255, 255, 255, 1)',
+                padding:15, 
+                bodyFont: {
+                    size:15 // Set the font size here
+                },
+                callbacks: {
+                    labelTextColor: function(context) {
+                        return 'black'; // set tooltip label text color to black
+                    }
+                }
             }
         }
     }
@@ -857,8 +934,6 @@ function toggleDatasetVisibility(chart, index, legendId) {
 ///click on hide graph//
 var toggelGraphDisplay = (elm) => {
     var contentParent =  elm.parents('.tab-content')
-    // if(elm.attr('data-visible')){
-    //     elm.attr('data-visible','false')
         elm.hide();
         if(elm.hasClass('show-eye-img')){
             contentParent.find('.hide-eye-img').show()
@@ -871,19 +946,18 @@ var toggelGraphDisplay = (elm) => {
             contentParent.find('.tab-pane.active').show()
             contentParent.find('.graph-display-text').text('Hide Graph')
         }
-    // }else{
-    //     elm.attr('data-visible','true')
-    //     elm.show();
-    // }
 }
 
 </script>
  
 <!-- //drag drop// -->
 <script>
-    $( function() {
-      $( "#sortable" ).sortable();
-    } );
+ document.addEventListener('DOMContentLoaded', function () {
+    new Sortable(example5, {
+        handle: '.handle', // handle's class
+        animation: 150
+    });
+});
     </script>
   </body>
   </html>
