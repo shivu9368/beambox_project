@@ -666,12 +666,5 @@ table thead tr th, table tbody tr td{
     .table-responsive{
         border: none;
     }
-    /* .grapgh-chart-bar{
-        width: 100%;
-    overflow-x: auto;
-    }
-    #chartWrapper{
-       width: 600px;
-    } */
   }
 
