@@ -299,6 +299,9 @@
     .nav-tabs{
         border:1px solid #ddd;
         border-radius: 10px;
+        .active a {
+            color: #fff!important;
+        }
         li {
             border: none; border-radius: 0;
             a{
@@ -321,23 +324,28 @@
                     border-left: 1px;
                     border-right: 1px;
                     border-left:#ddd;
+                    color: #717A7F;
                 }
             }
             &:first-child {
                 a {
                     border-radius: 7px 0 0 7px;
+                    color:#717A7F;
                 }
             }
             &:last-child {
                 a {
                     border-radius: 0 7px 7px 0;
+                    color: #717A7F;
                 }
             }
         }
         .active {
+            color:#fff;
             a, a:hover, a:focus{
                 background-color: #1EABF1;
                 border: none;
+                color: #fff;
             }            
         }
     }
