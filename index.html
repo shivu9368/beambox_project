@@ -89,6 +89,7 @@
                         </ul>
                     </div>
                         <div class="sidebar-note">
+                            <span><img src="img/suggestion.svg">Note</span>
                             <p>Use toggle to display item block on/off. Click and drag item to reorder.</p>
                         </div>
                     
@@ -99,7 +100,7 @@
                         <h1>Performance-Modules</h1>
                     </div>
                   <div class="row">
-                    <div id="example5">
+                    <div id="custom-sort">
                     <div class="col-md-6">
                         <div class="modules-action move">
                          <div class="modules-cart-performance">
@@ -229,8 +230,11 @@
                         </div>
                         <div class="col-md-12">
                             <div class="modules-action">
-                               <div class="modules-cart-performance">
-                                   <h3>Email Performance <span>View Guest <img src="img/arwow-msg.svg"></span></h3>
+                               <div class="modules-cart-performance ">
+                                  <div class="email-span">
+                                   <h3>Email Performance</h3> 
+                                   <span>View Guest <img src="img/arwow-msg.svg"></span>
+                                  </div>
                                    <div class="modules-cart-performance">
                                        <ul class="nav nav-tabs">
                                            <li class="active"><a data-toggle="tab" href="#tabemail1">7 days</a></li>
@@ -428,7 +432,7 @@
                         </div>
                         <div class="col-md-12">
                           <hr class="hr">
-                            <h2>Marketing Components</h2>
+                            <h2 class="marketing-mobile-case">Marketing Components</h2>
                             <div class="modules-action">
                                 <div class="modules-cart-performance">
                                     <h3>Top performing Interactions</h3>
@@ -486,7 +490,7 @@
                                         <div class="modules-cart-performance">
                                             <p>Oct 28, 2023 - Nov 27, 2023</p>
                                         </div>
-                                        <span class="move-block">Move Block<img src="img/move.svg"></span>
+                                        <span class="move-block">Move Block<img src="img/move.svg" class="handle"></span>
                                      </div>
                                     <div class="tablerecent table-responsive">
                                     <table style="width: 100%; margin-top: 40px;" class="table">
@@ -529,7 +533,7 @@
                                         <div class="modules-cart-performance">
                                             <p>Oct 28, 2023 - Nov 27, 2023</p>
                                         </div>
-                                        <span class="move-block">Move Block<img src="img/move.svg"></span>
+                                        <span class="move-block">Move Block<img src="img/move.svg" class="handle"></span>
                                      </div>
                                     <div class="tablerecent table-responsive">
                                     <table style="width: 100%; margin-top: 40px;" class="table">
@@ -565,6 +569,87 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="toggle-side-menu">
+                            <div class="toggle-side-bar">
+                            <button type="btn" class="performance-btn">Performance Modules</button>
+                            <button type="btn" class="marketing-btn">Marketing Modules</button>
+                            <button class="buttonsidebar" id="gearIcon" data-toggle="collapse" data-target="#setting-collapse" aria-expanded="false" aria-controls="setting-collapse">
+                              <span class="navbar-toggle-false"></span>
+                            </button>
+                          </div>
+                        <div class="setting-collapse-bar">
+                          <div class="collapse" id="setting-collapse">
+                            <div class="well">
+                              <div class="side-bar-wrapeer">
+                                <ul>
+                                  <li>
+                                    <span class="toggle-label">Guest Performance</span>
+                                      <label class="toggle-switch">
+                                        <input type="checkbox">
+                                        <span class="slider"></span>
+                                      </label>
+                                  </li>
+                                  <li>
+                                    <span>Location Performance</span>
+                                      <label class="toggle-switch">
+                                        <input type="checkbox" >
+                                        <span class="slider"></span>
+                                      </label>
+                                  </li>
+                                  <li>
+                                    <span>Email Performance</span>
+                                      <label class="toggle-switch">
+                                        <input type="checkbox">
+                                        <span class="slider"></span>
+                                      </label>
+                                  </li>
+                                  <li>
+                                    <span>QR Codes Performance</span>
+                                      <label class="toggle-switch">
+                                        <input type="checkbox">
+                                        <span class="slider"></span>
+                                      </label>
+                                  </li>
+                                  <li>
+                                    <span>Review Automator Performance</span>
+                                      <label class="toggle-switch">
+                                        <input type="checkbox">
+                                        <span class="slider"></span>
+                                      </label>
+                                  </li>
+                                </ul>
+                                <h4 class="marketing-heading">Marketing Components</h4>
+                                <ul>
+                                  <li>
+                                    <span>Guest Performance</span>
+                                      <label class="toggle-switch">
+                                        <input type="checkbox" checked>
+                                        <span class="slider"></span>
+                                      </label>
+                                  </li>
+                                  <li>
+                                    <span>Recent blast campaigns</span>
+                                      <label class="toggle-switch">
+                                        <input type="checkbox" >
+                                        <span class="slider"></span>
+                                      </label>
+                                  </li>
+                                  <li>
+                                    <span>Top performing Forms</span>
+                                      <label class="toggle-switch">
+                                        <input type="checkbox" >
+                                        <span class="slider"></span>
+                                      </label>
+                                  </li>
+                                </ul>
+                              </div>
+                              <div class="sidebar-note">
+                                <p>Use toggle to display item block on/off. Click and drag item to reorder.</p>
+                              </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
                     </div>
                     </div>
                </div>
@@ -579,7 +664,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script>
-  // Chart 1
+// Chart 1
 var ctx1 = document.getElementById('chart1').getContext('2d');
 var chart1 = new Chart(ctx1, {
     type: 'bar',
@@ -624,17 +709,11 @@ var chart1 = new Chart(ctx1, {
                 enabled: true,
                 mode: 'index',
                 intersect: false,
-                backgroundColor: 'rgba(255, 255, 255, 1)',
+                // backgroundColor: 'rgba(255, 255, 255, 1)',
                 padding:22, 
                 bodyFont: {
-                    size:20 // Set the font size here
+                    size:20
                 },
-                 position: 'nearest',
-                 callbacks: {
-                    labelTextColor: function(context) {
-                        return '#543453';
-                    }
-                }
             }
         }
     }
@@ -690,16 +769,16 @@ chart1.data.datasets.forEach(function(dataset, index) {
                     enabled: true,
                     mode: 'index',
                     intersect: false,
-                    backgroundColor: 'rgba(255, 255, 255, 1)',
+                    // backgroundColor: 'rgba(255, 255, 255, 1)',
                     padding: 15, 
                     bodyFont: {
                         size:15 // Set the font size here
                     },
-                    callbacks: {
-                        labelTextColor: function(context) {
-                            return 'black'; // set tooltip label text color to black
-                        }
-                    }
+                    // callbacks: {
+                    //     labelTextColor: function(context) {
+                    //         return 'black'; // set tooltip label text color to black
+                    //     }
+                    // }
                 }
                     
                 }
@@ -759,16 +838,16 @@ chart1.data.datasets.forEach(function(dataset, index) {
                     enabled: true,
                     mode: 'index',
                     intersect: false,
-                    backgroundColor: 'rgba(255, 255, 255, 1)',
+                    // backgroundColor: 'rgba(255, 255, 255, 1)',
                     padding: 15, 
                     bodyFont: {
                         size:15 // Set the font size here
                     },
-                   callbacks: {
-                    labelTextColor: function(context) {
-                        return 'black'; // set tooltip label text color to black
-                    }
-                }
+                //    callbacks: {
+                //     labelTextColor: function(context) {
+                //         return 'black'; // set tooltip label text color to black
+                //     }
+                // }
                 }
              }
             }
@@ -952,12 +1031,10 @@ var toggelGraphDisplay = (elm) => {
  
 <!-- //drag drop// -->
 <script>
- document.addEventListener('DOMContentLoaded', function () {
-    new Sortable(example5, {
-        handle: '.handle', // handle's class
-        animation: 150
+    new Sortable(document.getElementById('custom-sort'), {
+      handle: '.handle',
+      animation: 150
     });
-});
-    </script>
+</script>
   </body>
   </html>
