@@ -176,7 +176,7 @@
             display: flex;
             justify-content: space-between;
             span{
-                color:#929FAD;
+                color:#344047;
                 font-size: 14px;
                 font-weight: 450;
                 } 
@@ -299,6 +299,9 @@
     .nav-tabs{
         border:1px solid #ddd;
         border-radius: 10px;
+        .active a {
+            color: #fff!important;
+        }
         li {
             border: none; border-radius: 0;
             a{
@@ -321,23 +324,28 @@
                     border-left: 1px;
                     border-right: 1px;
                     border-left:#ddd;
+                    color: #717A7F;
                 }
             }
             &:first-child {
                 a {
                     border-radius: 7px 0 0 7px;
+                    color:#717A7F;
                 }
             }
             &:last-child {
                 a {
                     border-radius: 0 7px 7px 0;
+                    color: #717A7F;
                 }
             }
         }
         .active {
+            color:#fff;
             a, a:hover, a:focus{
                 background-color: #1EABF1;
                 border: none;
+                color: #fff;
             }            
         }
     }
@@ -666,12 +674,4 @@ table thead tr th, table tbody tr td{
     .table-responsive{
         border: none;
     }
-    /* .grapgh-chart-bar{
-        width: 100%;
-    overflow-x: auto;
-    }
-    #chartWrapper{
-       width: 600px;
-    } */
   }
-

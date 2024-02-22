@@ -18,7 +18,7 @@
         <div class="row">
             <div class="col-md-3 col-md-site-bar">
                 <div class="side-wraper-perforance">
-                    <div class="side-bar site-content">
+                    <div class="side-bar">
                         <h4>Performance Modules</h4>
                         <span><img src="img/range.svg"></span>
                     </div>
@@ -27,35 +27,35 @@
                           <li>
                             <span class="toggle-label">Guest Performance</span>
                               <label class="toggle-switch">
-                                <input type="checkbox" checked>
+                                <input type="checkbox" checked value="guest">>
                                 <span class="slider"></span>
                               </label>
                           </li>
                           <li>
                             <span>Location Performance</span>
                               <label class="toggle-switch">
-                                <input type="checkbox" checked>
+                                <input type="checkbox" checked value="location">
                                 <span class="slider"></span>
                               </label>
                           </li>
                           <li>
                             <span>Email Performance</span>
                               <label class="toggle-switch">
-                                <input type="checkbox" checked>
+                                <input type="checkbox" checked value="email">
                                 <span class="slider"></span>
                               </label>
                           </li>
                           <li>
                             <span>QR Codes Performance</span>
                               <label class="toggle-switch">
-                                <input type="checkbox" checked>
+                                <input type="checkbox" checked value="qrcode">
                                 <span class="slider"></span>
                               </label>
                           </li>
                           <li>
                             <span>Review Automator Performance</span>
                               <label class="toggle-switch">
-                                <input type="checkbox" checked>
+                                <input type="checkbox" checked value="review">
                                 <span class="slider"></span>
                               </label>
                           </li>
@@ -66,23 +66,23 @@
                         </div>
                         <ul>
                           <li>
-                            <span>Guest Performance</span>
+                            <span>Top performing Interactions</span>
                               <label class="toggle-switch">
-                                <input type="checkbox" checked>
+                                <input type="checkbox" checked value="marketing">
                                 <span class="slider"></span>
                               </label>
                           </li>
                           <li>
                             <span>Recent blast campaigns</span>
                               <label class="toggle-switch">
-                                <input type="checkbox" checked>
+                                <input type="checkbox" checked value="recent ">
                                 <span class="slider"></span>
                               </label>
                           </li>
                           <li>
                             <span>Top performing Forms</span>
                               <label class="toggle-switch">
-                                <input type="checkbox" checked>
+                                <input type="checkbox" checked value="topperforming ">
                                 <span class="slider"></span>
                               </label>
                           </li>
@@ -101,7 +101,7 @@
                     </div>
                   <div class="row">
                     <div id="custom-sort">
-                    <div class="col-md-6">
+                    <div class="col-md-6 guest">
                         <div class="modules-action move">
                          <div class="modules-cart-performance">
                             <h3>Guest Performance</h3>
@@ -166,7 +166,7 @@
                         </div>
                          </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 location">
                             <div class="modules-action">
                                 <div class="modules-cart-performance">
                                    <h3>Location Performance</h3>
@@ -228,7 +228,7 @@
                                </div>
                             </div>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-12 email">
                             <div class="modules-action">
                                <div class="modules-cart-performance ">
                                   <div class="email-span">
@@ -238,7 +238,7 @@
                                    <div class="modules-cart-performance">
                                        <ul class="nav nav-tabs">
                                            <li class="active"><a data-toggle="tab" href="#tabemail1">7 days</a></li>
-                                           <li><a data-toggle="tab" href="#tabeamil2">30 days</a></li>
+                                           <li><a data-toggle="tab" href="#tabemail2">30 days</a></li>
                                            <li><a data-toggle="tab" href="#tabemail3">60 days</a></li>
                                        </ul>
                                    </div>
@@ -311,7 +311,7 @@
                                 </div>
                            </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 qrcode">
                             <div class="modules-action">
                                 <div class="modules-cart-performance">
                                    <h3>QR Codes Performance</h3>
@@ -319,9 +319,9 @@
                                 </div>
                                 <div class="modules-cart-performance action">
                                    <ul class="nav nav-tabs">
-                                       <li class="active"><a data-toggle="tab" href="#tabLocation1">7 days</a></li>
-                                       <li><a data-toggle="tab" href="#tabLocation2">30 days</a></li>
-                                       <li><a data-toggle="tab" href="#tabLocation3">60 days</a></li>
+                                       <li class="active"><a data-toggle="tab" href="#qrcode1">7 days</a></li>
+                                       <li><a data-toggle="tab" href="#qrcode2">30 days</a></li>
+                                       <li><a data-toggle="tab" href="#qrcode3">60 days</a></li>
                                    </ul>
                                    <span class="move-block">Move Block<img src="img/move.svg" class="handle"></span>
                                </div>
@@ -350,17 +350,17 @@
                                             <img src="img/hide.svg" data-visible="false" >
                                         </div>
                                         </div>
-                                       <div id="tabLocation1" class="tab-pane fade in active chart-bar-custom">
+                                       <div id="qrcode1" class="tab-pane fade in active chart-bar-custom">
                                            <span>Last 7 days</span>
                                            <div>
                                             <canvas id="chart4"></canvas>
                                           </div>
                                        </div>
-                                       <div id="tabLocation2" class="tab-pane fade">
+                                       <div id="qrcode2" class="tab-pane fade">
                                            <h3>Tab 2 Content</h3>
                                            <p>This is the content of Tab 2.</p>
                                        </div>
-                                       <div id="tabLocation3" class="tab-pane fade">
+                                       <div id="qrcode3" class="tab-pane fade">
                                         <h3>Tab 3 Content</h3>
                                         <p>This is the content of Tab 2.</p>
                                     </div>
@@ -368,7 +368,7 @@
                                </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 review">
                             <div class="modules-action">
                                 <div class="modules-cart-performance">
                                    <h3>Review Automator Performance</h3>
@@ -376,9 +376,9 @@
                                 </div>
                                 <div class="modules-cart-performance action">
                                    <ul class="nav nav-tabs">
-                                       <li class="active"><a data-toggle="tab" href="#tabLocation1">7 days</a></li>
-                                       <li><a data-toggle="tab" href="#tabLocation2">30 days</a></li>
-                                       <li><a data-toggle="tab" href="#tabLocation3">60 days</a></li>
+                                       <li class="active"><a data-toggle="tab" href="#reviewauthor1">7 days</a></li>
+                                       <li><a data-toggle="tab" href="#reviewauthor2">30 days</a></li>
+                                       <li><a data-toggle="tab" href="#reviewauthor3">60 days</a></li>
                                    </ul>
                                    <span class="move-block">Move Block<img src="img/move.svg" class="handle"></span>
                                </div>
@@ -412,17 +412,17 @@
                                             <img src="img/hide.svg" data-visible="false" >
                                         </div>
                                      </div>
-                                       <div id="tabLocation1" class="tab-pane fade in active chart-bar-custom">
+                                       <div id="reviewauthor1" class="tab-pane fade in active chart-bar-custom">
                                            <span>Last 7 days</span>
                                            <div class="grapgh-chart-bar">
                                             <canvas id="chart5"></canvas>
                                           </div>
                                        </div>
-                                       <div id="tabLocation2" class="tab-pane fade">
+                                       <div id="reviewauthor2" class="tab-pane fade">
                                            <h3>Tab 2 Content</h3>
                                            <p>This is the content of Tab 2.</p>
                                        </div>
-                                       <div id="tabLocation3" class="tab-pane fade">
+                                       <div id="reviewauthor3" class="tab-pane fade">
                                         <h3>Tab 3 Content</h3>
                                         <p>This is the content of Tab 2.</p>
                                     </div>
@@ -430,10 +430,10 @@
                                </div>
                             </div>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-12 ">
                           <hr class="hr">
                             <h2 class="marketing-mobile-case">Marketing Components</h2>
-                            <div class="modules-action">
+                            <div class="modules-action marketing">
                                 <div class="modules-cart-performance">
                                     <h3>Top performing Interactions</h3>
                                     <div class="modules-cart-performance">
@@ -441,7 +441,7 @@
                                     </div>
                                     <span class="move-block">Move Block<img src="img/move.svg" class="handle"></span>
                                  </div>
-                                 <div class="tablerecenttable table-responsive">
+                                <div class="tablerecenttable table-responsive">
                                 <table style="width: 100%; margin-top: 40px;" class="table">
                                     <thead>
                                         <tr>
@@ -483,7 +483,7 @@
                                </div>
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12 recent">
                                 <div class="modules-action">
                                     <div class="modules-cart-performance">
                                         <h3>Recent blast campaigns</h3>
@@ -526,10 +526,10 @@
                                 </div>
                             </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12 topperforming">
                                 <div class="modules-action">
                                     <div class="modules-cart-performance">
-                                        <h3>Recent blast campaigns</h3>
+                                        <h3>Top performing Forms</h3>
                                         <div class="modules-cart-performance">
                                             <p>Oct 28, 2023 - Nov 27, 2023</p>
                                         </div>
@@ -1035,6 +1035,18 @@ var toggelGraphDisplay = (elm) => {
       handle: '.handle',
       animation: 150
     });
+    
+    // mobilecase click scrollbar
+    $("#gearIcon").click(function() {
+        $('html, body').animate({
+            scrollTop: $("#gearIcon").offset().top
+        }, 1000);
+    });
+
+    $('input[type="checkbox"]').click(function() { 
+            var inputValue = $(this).attr("value"); 
+            $("." + inputValue).toggle(); 
+     }); 
 </script>
   </body>
   </html>
