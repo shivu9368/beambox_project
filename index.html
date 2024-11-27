@@ -937,12 +937,13 @@ function toggleDatasetVisibility(chart, index, legendId) {
 
 
         // Chart 5
-        var ctx5 = document.getElementById('chart5').getContext('2d');
+      var ctx5 = document.getElementById('chart5').getContext('2d');
 var chart5 = new Chart(ctx5, {
     type: 'bar',
     data: {
         labels: ['01-Dec', '02-Dec', '03-Dec', '04-Dec', '05-Dec', '06-Dec', '07-Dec'],
-        datasets: [{
+        datasets: [
+            {
                 label: 'Opens',
                 data: [19, 20, 25, 19, 25, 25, 25],
                 backgroundColor: '#46D68C',
@@ -981,13 +982,14 @@ var chart5 = new Chart(ctx5, {
                 mode: 'index',
                 intersect: false,
                 backgroundColor: 'rgba(255, 255, 255, 1)',
-                padding:15, 
+                padding: 15,
                 bodyFont: {
-                    size:15 // Set the font size here
+                    size: 15
                 },
                 callbacks: {
                     labelTextColor: function(context) {
-                        return 'black'; // set tooltip label text color to black
+                        // Dynamically set the text color to match the dataset's bar color
+                        return context.raw ? context.dataset.backgroundColor : 'black';
                     }
                 }
             }
@@ -997,7 +999,9 @@ var chart5 = new Chart(ctx5, {
 
 var legend5 = document.getElementById('legend5');
 chart5.data.datasets.forEach(function(dataset, index) {
-    legend5.innerHTML += `<div onclick="toggleDatasetVisibility(chart5, ${index}, 'legend5')"><span style="background-color:${dataset.backgroundColor}"></span>${dataset.label}</div>`;
+    legend5.innerHTML += `<div onclick="toggleDatasetVisibility(chart5, ${index}, 'legend5')">
+        <span style="background-color:${dataset.backgroundColor}"></span>${dataset.label}
+    </div>`;
 });
 
 function toggleDatasetVisibility(chart, index, legendId) {
@@ -1008,6 +1012,7 @@ function toggleDatasetVisibility(chart, index, legendId) {
     var legendItems = document.querySelectorAll(`#${legendId} div`);
     legendItems[index].classList.toggle('line-through');
 }
+
 
 
 ///click on hide graph//
